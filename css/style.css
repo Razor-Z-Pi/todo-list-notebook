@@ -8,7 +8,7 @@ body {
     margin: 0;
     padding: 0;
 
-    background: linear-gradient(to right, yellow, orange);
+    background: white;
 }
 
 ul {
@@ -63,9 +63,10 @@ p {
     margin: 0;
     padding: 0;
 
-    width: 400px;
+    width: 700px;
+    height: 600px;
 
-    background-color: cornflowerblue;
+    background-color: rgb(190, 189, 189);
     border: 2px solid black;
     border-radius: 10%;
 }
@@ -74,22 +75,6 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.btn_login {
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-    width: 100%;
-
-    background-color: indianred;
-    border: 2px solid cadetblue;
-}
-
-.btn_login:hover,
-.btn_login:focus {
-    background-color: darkred;
-    color: white;
 }
 
 .error {

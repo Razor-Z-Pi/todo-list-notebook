@@ -15,27 +15,22 @@ session_start();
     <section class="container">
         <div class="Login_form">
             <form class="form" method="post" action="./avtorzation.php">
-                <h1>Авторизация</h1>
-              
-                  <?php
-                  if(isset($_SESSION["ERROR"])) {
-                    echo "<p class='error'>Вы ввели неправильный пароль или логин!</p>";
-                  }
-                  unset($_SESSION["ERROR"]);
-                  ?>
-                
-                <p>Введите логин и пароль</p>
+                <h1>Регистрация</h1>               
+                <p>Заполните соответсвенные поля и данные!!!</p>
                 <p>
                     Логин:
                     <input name="login" class="form-control" type="text" required>
                 </p>
                 <p>
+                    Почта:
+                    <input name="email" class="form-control" type="password" required>
+                </p>
+                <p>
                     Пароль:
                     <input name="password" class="form-control" type="password" required>
                 </p>
-                <input type="checkbox" class="form-check-input" id="flexCheckDefault" value="remember-me">
-                <label for="flexCheckDefault" class="form-check-label"><b>Запомнить меня</b></label>
-                <button class="btn btn-primary w-100 py-2" type="submit">Войти</button>
+
+                <button class="btn btn-primary w-100 py-2" type="submit">Регистрация</button>
             </form>
         </div>
     </section>
