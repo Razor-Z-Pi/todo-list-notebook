@@ -14,7 +14,7 @@ session_start();
   <body>
     <section class="container">
         <div class="Login_form">
-            <form class="form" method="post" action="./avtorzation.php">
+            <form class="form" method="post" action="./create.php">
                 <h1>Регистрация</h1>               
                 <p>Заполните соответсвенные поля и данные!!!</p>
                 <p>
@@ -23,7 +23,7 @@ session_start();
                 </p>
                 <p>
                     Почта:
-                    <input name="email" class="form-control" type="password" required>
+                    <input name="email" class="form-control" type="email" required>
                 </p>
                 <p>
                     Пароль:

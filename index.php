@@ -19,7 +19,7 @@ session_start();
               
                   <?php
                   if(isset($_SESSION["ERROR"])) {
-                    echo "<p class='error'>Вы ввели неправильный пароль или логин!</p>";
+                    echo "<p class='error alert alert-danger'>Вы ввели неправильный пароль или логин!</p>";
                   }
                   unset($_SESSION["ERROR"]);
                   ?>
@@ -27,15 +27,19 @@ session_start();
                 <p>Введите логин и пароль</p>
                 <p>
                     Логин:
-                    <input name="login" class="form-control" type="text" required>
+                    <input name="login" class="form-control" type="text" placeholder="Элктронная почта" required>
                 </p>
                 <p>
                     Пароль:
-                    <input name="password" class="form-control" type="password" required>
+                    <input name="password" class="form-control" type="password" placeholder="Пароль" required>
                 </p>
                 <input type="checkbox" class="form-check-input" id="flexCheckDefault" value="remember-me">
                 <label for="flexCheckDefault" class="form-check-label"><b>Запомнить меня</b></label>
                 <button class="btn btn-primary w-100 py-2" type="submit">Войти</button>
+            </form>
+            <form method="post" action="./register.php">
+              <br>
+              <button class="btn btn-primary w-100 py-2" type="submit">Регистрация</button>
             </form>
         </div>
     </section>
