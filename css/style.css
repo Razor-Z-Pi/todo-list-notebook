@@ -23,26 +23,6 @@ img {
     width: 100%;
 }
 
-h1, p {
-    margin: 0;
-}
-
-h1 {
-    margin-top: 30px;
-    margin-bottom: 30px;
-
-    color: yellow;
-    font-style: italic;
-}
-
-p {
-    margin-top: 15px;
-    margin-bottom: 10px;
-
-    font-size: 18px;
-    font-weight: bold;
-}
-
 .container {
     display: flex;
     flex-direction: column;
@@ -84,31 +64,144 @@ p {
     background-color: indianred;
 }
 
-/*Профиль*/
+/*__________________Профиль__________________*/
 
-.read_book {
+/*Dashboard*/
+
+.point_navigate_dashboard {
+    color: white;
+    text-decoration: none;
+
+    font-size: 25px;
+
+    margin-left: 30px;
+
+    transition: color .5s ease-in;
+    transition: font-size .5s ease-in;
+}
+
+.point_navigate_dashboard:hover,
+.point_navigate_dashboard:focus {
+    color: yellow;
+    font-size: 32px;
+
+    text-decoration: none;
+}
+
+.btn_add_message {
+    background-color: greenyellow;
+    border-color: green;
+
+    font-weight: 700;
+    font-size: 18px;
+
+    border-radius: 50px;
+
+    transition: background-color .7s ease-in-out;
+}
+
+.btn_add_message:hover,
+.btn_add_message:focus {
+    background-color: orange;
+}
+
+/* Модальный (фон) */
+.modal {
+    display: none;
+    /* Скрыто по умолчанию */
+    position: fixed;
+    /* Оставаться на месте */
+    z-index: 1;
+    /* Сидеть на вершине */
+    padding-top: 100px;
+    /* Расположение коробки */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Полная ширина */
+    height: 100%;
+    /* Полная высота */
+    overflow: auto;
+    /* Включите прокрутку, если это необходимо */
+    background-color: rgb(0, 0, 0);
+    /* Цвет запасной вариант  */
+    background-color: rgba(0, 0, 0, 0.4);
+    /*Черный с непрозрачностью */
+  }
+  
+  /* Модальное содержание */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Добавить анимацию */
+  @-webkit-keyframes animatetop {
+    from {
+      top: -300px;
+      opacity: 0
+    }
+  
+    to {
+      top: 0;
+      opacity: 1
+    }
+  }
+  
+  @keyframes animatetop {
+    from {
+      top: -300px;
+      opacity: 0
+    }
+  
+    to {
+      top: 0;
+      opacity: 1
+    }
+  }
+  
+  /* Кнопка закрытия */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+    background-color: rgb(53, 91, 218);;
+    color: white;
+  }
+  
+  .modal-body {
+    padding: 2px 16px;
+  }
+
+  .form_add_message {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    justify-content: center;
+  }
 
-.btn_write {
-    width: 100px;
-}
-
-
-.message-container {
-    margin-bottom: 10px;
-
+  .inp_item {
+    margin-bottom: 20px;
     text-align: center;
-
-    border: 2px solid black;
-}
-.message-container h2 {
-    margin: 0;
-    margin-bottom: 10px;
-}
-
-.Title-container {
-    margin: 0;
-}
+  }

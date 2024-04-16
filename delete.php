@@ -5,7 +5,7 @@ $data = connect();
 
 if (!empty($_POST)) {
   $item = $_POST["date"];
-  $query = "DELETE FROM message WHERE id = '$item'";
+  $query = "DELETE FROM todolist WHERE id = '$item'";
   mysqli_query($data, $query) or die("Произошла ошибка удаления записи");
-  header("Location: profile.php");
+  header("Location: todo.php");
 }

@@ -31,13 +31,6 @@ require_once "CRUD_not_update.php";
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Личные данные!!!</span></a>
-    </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -46,28 +39,20 @@ require_once "CRUD_not_update.php";
         Инструменты
     </div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <a href="todo.php" class="point_navigate_dashboard"><span>Todo List</span></a>
+       <!-- Nav Item - Pages Collapse Menu -->
+       <li class="nav-item">
+            <a href="todo.php" class="point_navigate_dashboard">Todo List</a>
         </a>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <a href="notepude.php" class="point_navigate_dashboard"><span>Блокнот</span></a>
+            <a href="notepude.php" class="point_navigate_dashboard">Блокнот</a>
         </a>
     </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
             <a href="history.php" class="point_navigate_dashboard"><span>История</span></a>
         </a>
     </li>
