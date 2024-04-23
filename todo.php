@@ -94,6 +94,7 @@ require_once "CRUD_not_update.php";
             </div>
 
             <button type="button" id="modalBtn" class="btn_add_message">Создать + </button>
+            <button type="button" id="modalBtnUpdate" class="btn_add_message">Редактировать</button>
 
             <!-- Модальный -->
 		<div id="myModal" class="modal">
@@ -115,6 +116,37 @@ require_once "CRUD_not_update.php";
 
         </div>
 
+            <!-- Модальный Редактирования-->
+            <div id="myModalUpdate" class="modal">
+
+            <!-- Модальное содержание -->
+            <div class="modal-content">
+                <div class="modal-header">
+                <h2 style="text-align: center;">Заполни поля!!!</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body" style="text-align: center; font-weight: 700; font-size: 20px;">
+                    <form class="form_add_message" action="update.php" method="post">
+                        <label for="data">Номер записи</label>
+                        <select id="data" name="dataUpdate">
+                            <?php
+                            $index_db = connect();
+                            $query = mysqli_query($index_db, "SELECT id FROM todolist");
+                            $index = mysqli_fetch_all($query);
+                            foreach ($index as $i => $key):?>
+                                <option selected value="<?=$key[0]?>"><?=$i?></option>
+                            <?php endforeach;?>
+                        </select>
+                        <br>
+                        <input name="titleUpd" class="inp_item" type="text" placeholder="Заголовок" required>
+                        <textarea name="messageUpd" class="inp_item" name="" id="" cols="30" rows="10" placeholder="Основная задача" required></textarea>
+                        <button class="btn_add_message" type="submit">Обновить</button>
+                    </form>
+                </div>
+            </div>
+
+            </div>
+
         <form method="post" action="delete.php">
             <label for="data">Номер записи</label>
             <select id="data" name="dataS">
@@ -127,18 +159,19 @@ require_once "CRUD_not_update.php";
                 <?php endforeach;?>
             </select>
             <button class="btn_add_message" type="submit">Удалить</button>
-        </form>
-
-        <?php $message = read(); arsort($message);?>
+            <?php $message = read(); arsort($message);?>
             <?php foreach ($message as $key => $value):?>
                 <div class="message-container">
                     <h2>Номер записи: <?=$key?></h2>
-                    <p class="Title-container">Тема: <?=$value[1]?>;<br> <?='Дата создания: ' . $value[4]?></p>
+                    <p class="Title-container">Тема: <?=$value[1]?>;<br> <?='Дата создания: ' . $value[3]?></p>
                     <p><?=nl2br(htmlspecialchars($value[2]))?></p>
                 </div>
             <?php endforeach;?>
+        </form>
 
-        </div>
+    </div>
+
+
         <!-- End of Main Content -->
 
 </div>
@@ -154,7 +187,7 @@ require_once "CRUD_not_update.php";
     <script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="./js/sb-admin-2.min.js"></script>
+    <script src="./js/sb-admin-2.js"></script>
 
     <!-- Page level plugins -->
     <script src="./vendor/chart.js/Chart.min.js"></script>
