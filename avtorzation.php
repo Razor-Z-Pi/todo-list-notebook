@@ -15,6 +15,9 @@ if (!empty($_POST["login"]) && !empty($_POST["password"])) {
   foreach ($users as $value) {
     if ($value["email"] == $login) {
       $user = $login;
+      $_SESSION["login"] = $value["login"];
+      $_SESSION["email"] = $user;
+      $_SESSION["password"] = $value["password"];
     }
   } 
     if ($user === $login) {

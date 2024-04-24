@@ -1,6 +1,7 @@
 <?php
 header("Content-type:text/html; charset=UTF-8");
 require_once "CRUD_not_update.php";
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -21,7 +22,7 @@ require_once "CRUD_not_update.php";
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="profile.php">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -30,13 +31,6 @@ require_once "CRUD_not_update.php";
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Личные данные!!!</span></a>
-    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -48,26 +42,18 @@ require_once "CRUD_not_update.php";
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <a href="todo.php" class="point_navigate_dashboard"><span>Todo List</span></a>
+            <a href="todo.php" class="point_navigate_dashboard">Todo List</a>
         </a>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <a href="notepude.php" class="point_navigate_dashboard"><span>Блокнот</span></a>
+            <a href="notepude.php" class="point_navigate_dashboard">Блокнот</a>
         </a>
     </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
             <a href="history.php" class="point_navigate_dashboard"><span>История</span></a>
         </a>
     </li>
@@ -91,7 +77,7 @@ require_once "CRUD_not_update.php";
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-weight: 700"><?php echo "admin"?></span>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-weight: 700"><?php echo $_SESSION["login"]?></span>
                     </a>
                 </li>
 
@@ -105,9 +91,23 @@ require_once "CRUD_not_update.php";
 
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">История</h1>
+                <h1 class="h3 mb-0 text-gray-800">Личные данные</h1>
             </div>
-
+            <label for="">
+                Логин:
+                <input type="text" value="<?=$_SESSION["login"]?>">
+            </label>
+            <label for="">
+                Почта:
+                <input type="text" value="<?=$_SESSION["email"]?>">
+            </label>
+            <label for="">
+                Пароль:
+                <input type="password" value="<?=$_SESSION["password"]?>">
+            </label>
+            <label for="">
+                Количество записей:
+            </label>
 
         </div>
         <!-- End of Main Content -->

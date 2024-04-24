@@ -1,6 +1,7 @@
 <?php
 header("Content-type:text/html; charset=UTF-8");
 require_once "CRUD_not_update.php";
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -21,7 +22,7 @@ require_once "CRUD_not_update.php";
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="profile.php">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -76,7 +77,7 @@ require_once "CRUD_not_update.php";
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-weight: 700"><?php echo "admin"?></span>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-weight: 700"><?php echo $_SESSION["login"]?></span>
                     </a>
                 </li>
 
