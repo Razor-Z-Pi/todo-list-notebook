@@ -1,7 +1,6 @@
 <?php
 header("Content-type:text/html; charset=UTF-8");
-require_once "CRUD_not_update.php";
-session_start();
+require_once "create_and_read_db.php";
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -77,7 +76,7 @@ session_start();
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-weight: 700"><?php echo $_SESSION["login"]?></span>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-weight: 700"><?php echo $_SESSION["login"]?>&hearts;</span>
                     </a>
                 </li>
 
@@ -107,7 +106,7 @@ session_start();
                     <span class="close">&times;</span>
                 </div>
                 <div class="modal-body" style="text-align: center; font-weight: 700; font-size: 20px;">
-                    <form class="form_add_message" action="CRUD_not_update.php" method="post">
+                    <form class="form_add_message" action="create_and_read_db.php" method="post">
                         <input name="title" class="inp_item" type="text" placeholder="Заголовок" required>
                         <textarea name="message" class="inp_item" name="" id="" cols="30" rows="10" placeholder="Основная задача" required></textarea>
                         <button class="btn_add_message" type="submit">Записать</button>

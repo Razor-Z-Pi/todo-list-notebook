@@ -14,7 +14,7 @@ session_start();
   <body>
     <section class="container">
         <div class="Login_form">
-            <form class="form" method="post" action="./create.php">
+            <form class="form" method="post" action="./create_auth.php">
                 <h1>Регистрация</h1>               
                 <p>Заполните соответсвенные поля и данные!!!</p>
                 <p>

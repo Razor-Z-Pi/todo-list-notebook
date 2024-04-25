@@ -1,7 +1,6 @@
 <?php
 header("Content-type:text/html; charset=UTF-8");
-require_once "CRUD_not_update.php";
-session_start();
+require_once "create_and_read_db.php";
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -100,6 +99,7 @@ session_start();
                     <h2>Номер записи: <?=$key?></h2>
                     <p class="Title-container">Тема: <?=$value[1]?>;<br> <?='Дата создания: ' . $value[3]?></p>
                     <p><?=nl2br(htmlspecialchars($value[2]))?></p>
+                    <p>Состояние:<?=$value[6]?></p>
                 </div>
             <?php endforeach;?>
     </div>

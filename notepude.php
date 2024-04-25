@@ -1,7 +1,6 @@
 <?php
 header("Content-type:text/html; charset=UTF-8");
-require_once "CRUD_not_update.php";
-session_start();
+require_once "create_and_read_db.php";
 ?>
 <!DOCTYPE html>
 <html lang="ru">

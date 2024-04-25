@@ -1,7 +1,6 @@
 <?php
 header("Content-type:text/html; charset=UTF-8");
-require_once "CRUD_not_update.php";
-session_start();
+require_once "create_and_read_db.php";
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -107,6 +106,18 @@ session_start();
             </label>
             <label for="">
                 Количество записей:
+                <?php
+                    $index_db = connect();
+                    $id = $_SESSION["id"];
+                    $query = mysqli_query($index_db, "SELECT * FROM auth");
+                    $index = mysqli_fetch_all($query, MYSQLI_ASSOC);
+                    foreach ($index as $item) {
+                        if ($id = $item["id"]) {
+                            print($item["cout_message"]);
+                            $_SESSION["cout"] = $item["cout_message"];
+                        }
+                    }
+                ?>
             </label>
 
         </div>
