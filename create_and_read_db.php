@@ -25,7 +25,7 @@ if (!empty($_POST)) {
   $queryCoutMessage = "UPDATE auth SET cout_message = '$cout_number_message' WHERE id = '$id'";
   mysqli_query($data, $queryCoutMessage) or die("Ошибка обновления счетчика записей!!!");
 
-  //header("Location: todo.php");
+  header("Location: todo.php");
 }
 
 function security($db, $item) {
