@@ -12,7 +12,7 @@ session_start();
   </head>
 
   <body>
-    <section class="container">
+    <section class="container-auth">
         <div class="Login_form">
             <form class="form" method="post" action="./avtorzation.php">
                 <h1>Авторизация</h1>

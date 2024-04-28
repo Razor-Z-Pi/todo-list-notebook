@@ -4,167 +4,216 @@ require_once "create_and_read_db.php";
 ?>
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <meta charset="UTF-8">
-  <title>todo-list-notebook</title>
-  <link href="css/normalize.css" rel="stylesheet">
-  <link href="./css/style.css" rel="stylesheet" type="text/css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/sb-admin-2.min.css" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo-list-notebook</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="./css/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body id="page-top">
-   <!-- Page Wrapper -->
-   <div id="wrapper">
+<body>
 
-  <!-- Sidebar -->
-  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="profile.php">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">TO DO List <sup>Блокнот</sup></div>
-    </a>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Инструменты
-    </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-            <a href="todo.php" class="point_navigate_dashboard">Todo List</a>
-        </a>
-    </li>
-
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-            <a href="notepude.php" class="point_navigate_dashboard">Блокнот</a>
-        </a>
-    </li>
-
-        <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
-            <a href="history.php" class="point_navigate_dashboard"><span>История</span></a>
-        </a>
-    </li>
-
-</ul>
-<!-- End of Sidebar -->
-
-<!-- Content Wrapper -->
-<div id="content-wrapper" class="d-flex flex-column">
-
-    <!-- Main Content -->
-    <div id="content">
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-            <!-- Topbar Navbar -->
-            <ul class="navbar-nav ml-auto">
-
-                <!-- Nav Item - User Information -->
-                <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-weight: 700"><?php echo $_SESSION["login"]?></span>
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
-        <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-            <!-- Page Heading -->
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Личные данные</h1>
+    <div class="container">
+        <!-- Sidebar Section -->
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <h3>TO DO List<span class="danger"> Блокнот</span></h3>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
             </div>
-            <label for="">
-                Логин:
-                <input type="text" value="<?=$_SESSION["login"]?>">
-            </label>
-            <label for="">
-                Почта:
-                <input type="text" value="<?=$_SESSION["email"]?>">
-            </label>
-            <label for="">
-                Пароль:
-                <input type="password" value="<?=$_SESSION["password"]?>">
-            </label>
-            <label for="">
-                Количество записей:
-                <?php
-                    $index_db = connect();
-                    $id = $_SESSION["id"];
-                    $query = mysqli_query($index_db, "SELECT * FROM auth");
-                    $index = mysqli_fetch_all($query, MYSQLI_ASSOC);
-                    foreach ($index as $item) {
-                        if ($id = $item["id"]) {
-                            print($item["cout_message"]);
-                            $_SESSION["cout"] = $item["cout_message"];
-                        }
-                    }
-                ?>
-            </label>
 
-        </div>
+            <div class="sidebar">
+                <a href="profile.php">
+                    <span class="material-icons-sharp">
+                        person_outline
+                    </span>
+                    <h3>Профиль</h3>
+                </a>
+                <a href="todo.php">
+                    <span class="material-icons-sharp">
+                        inventory
+                    </span>
+                    <h3>Todo Lis</h3>
+                </a>
+                <a href="notepude.php">
+                    <span class="material-icons-sharp">
+                        add_box
+                    </span>
+                    <h3>Блокнот</h3>
+                </a>
+                <a href="history.php">
+                    <span class="material-icons-sharp">
+                        receipt_long
+                    </span>
+                    <h3>История</h3>
+                </a>
+                <a href="index.php">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                    <h3>Выход</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- End of Sidebar Section -->
+
+        <!-- Main Content -->
+        <main>
+            <h1>Профиль</h1>
+            <!-- Analyses -->
+            <div class="analyse">
+                <div class="sales">
+                    <div class="status">
+                        <div class="info">
+                            <h2>Количество записей</h2>
+                        </div>
+                        <div class="progresss">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="percentage">
+                                <p>
+                                <?php
+                                    $index_db = connect();
+                                    $id = $_SESSION["id"];
+                                    $query = mysqli_query($index_db, "SELECT * FROM auth");
+                                    $index = mysqli_fetch_all($query, MYSQLI_ASSOC);
+                                    foreach ($index as $item) {
+                                        if ($id = $item["id"]) {
+                                            print($item["cout_message"]);
+                                            $_SESSION["cout"] = $item["cout_message"];
+                                        }
+                                    }
+                                ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visits">
+                    <div class="status">
+                        <div class="info">
+                            <h2>Визит сервиса</h2>
+                        </div>
+                        <div class="progresss">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="percentage">
+                                <p>
+                                    1
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Analyses -->
+
+            <!-- New Users Section -->
+            <div class="new-users">
+                <h2>Информация</h2>
+                <div class="user-list">
+                    <div class="user">
+                        <label for="">
+                            Логин:
+                            <input type="text" value="<?=$_SESSION["login"]?>">
+                        </label>
+                    </div>
+                    <div class="user">
+                        <label for="">
+                            Почта:
+                            <input type="text" value="<?=$_SESSION["email"]?>">
+                        </label>
+                    </div>
+                    <div class="user">
+                        <label for="">
+                            Пароль:
+                            <input type="password" value="<?=$_SESSION["password"]?>">
+                        </label>
+                    </div>
+                    <div class="user">
+                        <button type="button" class="btn_add_message">Изменить</button>
+                    </div>
+                </div>
+            </div>
+            <!-- End of New Users Section -->
+
+            <!-- Recent Orders Table -->
+            <div class="recent-orders">
+                <h2>Записи</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Номер</th>
+                            <th>Название</th>
+                            <th>Дата создания</th>
+                            <th>Содержимое</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php $message = read(); arsort($message);?>
+                    <?php foreach ($message as $key => $value):?>
+                        <div class="message-container">
+                            <tr>
+                                <td>Номер записи: <?=$key?></td>
+                                <td>Тема: <?=$value[1]?></td>
+                                <td><?=$value[3]?></td>
+                                <td><?=nl2br(htmlspecialchars($value[2]))?></td>
+                            </tr>
+                        </div>
+                    <?php endforeach;?>
+                    </tbody>
+                </table>
+            </div>
+            <!-- End of Recent Orders -->
+
+        </main>
         <!-- End of Main Content -->
 
-</div>
-<!-- End of Content Wrapper -->
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="nav">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">
+                        menu
+                    </span>
+                </button>
+                <div class="dark-mode">
+                    <span class="material-icons-sharp active">
+                        light_mode
+                    </span>
+                    <span class="material-icons-sharp">
+                        dark_mode
+                    </span>
+                </div>
+            </div>
+            <!-- End of Nav -->
 
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-<i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
-            </button>
+            <div class="user-profile">
+                <div class="logo">
+                    <span class="material-icons-sharp">
+                        person
+                    </span>
+                    <h2><?php echo $_SESSION["login"]?>&hearts;</h2>
+                    <p>Пользователь</p>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
+
+
     </div>
-</div>
-</div>
 
-  <!-- Core plugin JavaScript-->
-  <script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="./js/sb-admin-2.js"></script>
-
-  <!-- Page level plugins -->
-  <script src="./vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="./js/demo/chart-area-demo.js"></script>
-  <script src="./js/demo/chart-pie-demo.js"></script>
+    <script src="./js/orders.js"></script>
+    <script src="./js/index.js"></script>
 </body>
+
 </html>
