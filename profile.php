@@ -212,7 +212,6 @@ require_once "create_and_read_db.php";
 
     </div>
 
-    <script src="./js/orders.js"></script>
     <script src="./js/index.js"></script>
 </body>
 
