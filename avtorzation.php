@@ -8,7 +8,6 @@ if (!empty($_POST["login"]) && !empty($_POST["password"])) {
   $login = $_POST["login"];
   $validate = mysqli_query($link,  "SELECT * FROM auth");
   $password = $_POST["password"];
-  
 
   $users = mysqli_fetch_all($validate, MYSQLI_ASSOC);
   

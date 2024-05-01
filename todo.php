@@ -133,15 +133,42 @@ require_once "create_and_read_db.php";
                 <form method="post" action="delete.php">
                 <label for="data"><b>Номер записи</b></label>
                 <select id="data" name="dataS">
-                <?php
-                $index_db = connect();
-                $query = mysqli_query($index_db, "SELECT id FROM todolist");
-                $index = mysqli_fetch_all($query);
-                foreach ($index as $i => $key):?>
-                    <option selected value="<?=$key[0]?>"><?=$i?></option>
-                <?php endforeach;?>
+                    <?php
+                    $index_db = connect();
+                    $array = array();
+
+                    $query = mysqli_query($index_db, "SELECT id FROM todolist");
+                    $index = mysqli_fetch_all($query);
+
+                    foreach ($index as $j => $item) {
+                        $array[] = $item[0];
+                    }
+
+                    $_SESSION["array"] = $array;
+                  
+
+                    foreach ($index as $i => $key):?>
+                        <option selected value="<?=$key[0]?>"><?=$i?></option>
+                    <?php endforeach;?>
                 </select>
                 <button class="btn_add_message" type="submit">Удалить</button>
+
+                <form method="post" action="delete.php">
+                <label for="data"><b>Номер записи</b></label>
+                <select id="data" name="dataFinall">
+                    <?php
+                    $index_db = connect();
+                    $array = array();
+
+                    $query = mysqli_query($index_db, "SELECT id FROM todolist");
+                    $index = mysqli_fetch_all($query);
+            
+                    foreach ($index as $i => $key):?>
+                        <option selected value="<?=$key[0]?>"><?=$i?></option>
+                    <?php endforeach;?>
+                </select>
+                <button class="btn_add_message" type="submit">Завершить</button>
+                </form>
                     <table>
                         <thead>
                             <tr>
@@ -154,6 +181,7 @@ require_once "create_and_read_db.php";
                         <tbody>
                         <?php $message = read(); arsort($message);?>
                         <?php foreach ($message as $key => $value):?>
+                            <form action="delete.php" method="post">
                             <div class="message-container">
                                 <tr>
                                     <td><?=$key?></td>
@@ -165,7 +193,6 @@ require_once "create_and_read_db.php";
                         <?php endforeach;?>
                         </tbody>
                     </table>
-                </form>
             </div>
             <!-- End of Recent Orders -->
 

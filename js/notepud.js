@@ -22,7 +22,7 @@ textarea.addEventListener("blur", function() {
         object.push({text: this.value, time: now});
 
         this.value = '';
-    
+
         let li = document.createElement("li");
         li.dataset.num = object.length - 1;
         li.innerHTML = now;

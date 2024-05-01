@@ -98,23 +98,6 @@ require_once "create_and_read_db.php";
                         </div>
                     </div>
                 </div>
-                <div class="visits">
-                    <div class="status">
-                        <div class="info">
-                            <h2>Визит сервиса</h2>
-                        </div>
-                        <div class="progresss">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="percentage">
-                                <p>
-                                    1
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!-- End of Analyses -->
 
@@ -141,11 +124,42 @@ require_once "create_and_read_db.php";
                         </label>
                     </div>
                     <div class="user">
-                        <button type="button" class="btn_add_message">Изменить</button>
+                        <button type="button" id="modalProfile" class="btn_add_message">Изменить</button>
                     </div>
                 </div>
             </div>
             <!-- End of New Users Section -->
+
+
+            <!-- Модальный Редактирования-->
+            <div id="modalProfileNext" class="modal">
+
+            <!-- Модальное содержание -->
+            <div class="modal-content">
+                <div class="modal-header">
+                <h2 style="text-align: center;">Заполни поля!!!</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body" style="text-align: center; font-weight: 700; font-size: 20px;">
+                    <form class="form_add_message" action="profileUpdate.php" method="post">
+                        <label for="">
+                            Логин:
+                            <input type="text" value="<?=$_SESSION["login"]?>">
+                        </label>
+                        <label for="">
+                            Почта:
+                            <input type="text" value="<?=$_SESSION["email"]?>">
+                        </label>
+                        <label for="">
+                            Пароль:
+                            <input type="password" value="<?=$_SESSION["password"]?>">
+                        </label>
+                        <button class="btn_add_message" type="submit">Обновить</button>
+                    </form>
+                </div>
+            </div>
+
+            </div>
 
             <!-- Recent Orders Table -->
             <div class="recent-orders">
@@ -212,6 +226,7 @@ require_once "create_and_read_db.php";
 
     </div>
 
+    <script src="./js/modal.js"></script>
     <script src="./js/index.js"></script>
 </body>
 

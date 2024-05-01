@@ -97,6 +97,9 @@ require_once "create_and_read_db.php";
                                             } else {
                                                 $color = "background-color: rgb(175, 60, 60);";
                                             }
+                                            if ($value[6] == "выполнено") {
+                                                $color = "background-color: #bbc715;";
+                                            }
                                         ?>
                                         <div style="<?=$color?>"><b style="color: black"><?=$value[6]?></b></div>
                                     </td>

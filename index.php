@@ -33,8 +33,6 @@ session_start();
                     Пароль:
                     <input name="password" class="form-control" type="password" placeholder="Пароль" required>
                 </p>
-                <input type="checkbox" class="form-check-input" id="flexCheckDefault" value="remember-me">
-                <label for="flexCheckDefault" class="form-check-label"><b>Запомнить меня</b></label>
                 <button class="btn btn-primary w-100 py-2" type="submit">Войти</button>
             </form>
             <form method="post" action="./register.php">

@@ -12,7 +12,7 @@ session_start();
   </head>
 
   <body>
-    <section class="container">
+    <section class="container-auth">
         <div class="Login_form">
             <form class="form" method="post" action="./create_auth.php">
                 <h1>Регистрация</h1>               
@@ -31,6 +31,8 @@ session_start();
                 </p>
 
                 <button class="btn btn-primary w-100 py-2" type="submit">Регистрация</button>
+                <br>
+                <a class="btn btn-primary w-100 py-2" href="index.php">Вернуться</a>
             </form>
         </div>
     </section>
