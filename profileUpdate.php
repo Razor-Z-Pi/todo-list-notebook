@@ -1,15 +1,29 @@
 <?php
 require_once "./DataBase/link.php";
+session_start();
 
 $data = connect();
 
 if (!empty($_POST)) {
-    $item = $_POST["dataUpdate"];
-    $title = $_POST["titleUpd"];
-    $message = $_POST["messageUpd"];
-    $query = "UPDATE todolist  SET title = '$title', message = '$message' WHERE id = '$item'";
-    $queryhistory = "UPDATE history SET title = '$title', message = '$message' WHERE id = '$item'";
+    $Oldpassword = $_POST["password"];
+    if ($Oldpassword != $_SESSION["password"]) {
+        $_SESSION["ERROR_PROFILE"] = "";
+        header("Location: profile.php") or die();
+    }
+
+    $id = $_SESSION["id"];
+    $login = $_POST["login"];
+    $email = $_POST["email"];
+
+    $Newpassword = $_POST["passwordUpdate"];
+
+
+    $query = "UPDATE auth SET login = '$login', email = '$email', password = '$Newpassword' WHERE id = '$id'";
     mysqli_query($data, $query) or die("Произошла ошибка раедактирования записи");
-    mysqli_query($data, $query) or die("Произошла ошибка раедактирования записи истории!!!");
-    header("Location: todo.php");
+
+    $_SESSION["login"] = $login;
+    $_SESSION["email"] = $email;
+    $_SESSION["password"] = $Newpassword;    
+
+    header("Location: profile.php");
 }

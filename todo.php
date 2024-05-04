@@ -82,8 +82,8 @@ require_once "create_and_read_db.php";
                 <!-- Модальное содержание -->
                 <div class="modal-content">
                     <div class="modal-header">
+                    <span class="close">&times;</span>
                     <h2 style="text-align: center;">Заполни поля!!!</h2>
-                        <span class="close">&times;</span>
                     </div>
                     <div class="modal-body" style="text-align: center; font-weight: 700; font-size: 20px;">
                         <form class="form_add_message" action="create_and_read_db.php" method="post">
@@ -103,7 +103,7 @@ require_once "create_and_read_db.php";
                 <div class="modal-content">
                     <div class="modal-header">
                     <h2 style="text-align: center;">Заполни поля!!!</h2>
-                        <span class="close">&times;</span>
+                    <span class="close">&times;</span>
                     </div>
                     <div class="modal-body" style="text-align: center; font-weight: 700; font-size: 20px;">
                         <form class="form_add_message" action="update.php" method="post">

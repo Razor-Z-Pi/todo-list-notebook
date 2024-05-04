@@ -104,6 +104,12 @@ require_once "create_and_read_db.php";
             <!-- New Users Section -->
             <div class="new-users">
                 <h2>Информация</h2>
+                <?php
+                  if(isset($_SESSION["ERROR_PROFILE"])) {
+                    echo "<p class='error alert alert-danger'>Вы ввели неправильный пароль!!!</p>";
+                  }
+                  unset($_SESSION["ERROR_PROFILE"]);
+                  ?>
                 <div class="user-list">
                     <div class="user">
                         <label for="">
@@ -124,7 +130,7 @@ require_once "create_and_read_db.php";
                         </label>
                     </div>
                     <div class="user">
-                        <button type="button" id="modalProfile" class="btn_add_message">Изменить</button>
+                        <button type="button" id="modalBtn" class="btn_add_message">Изменить</button>
                     </div>
                 </div>
             </div>
@@ -132,27 +138,31 @@ require_once "create_and_read_db.php";
 
 
             <!-- Модальный Редактирования-->
-            <div id="modalProfileNext" class="modal">
+            <div id="myModal" class="modal">
 
             <!-- Модальное содержание -->
             <div class="modal-content">
                 <div class="modal-header">
+                <span class="close">&times;</span>
                 <h2 style="text-align: center;">Заполни поля!!!</h2>
-                    <span class="close">&times;</span>
                 </div>
                 <div class="modal-body" style="text-align: center; font-weight: 700; font-size: 20px;">
                     <form class="form_add_message" action="profileUpdate.php" method="post">
                         <label for="">
                             Логин:
-                            <input type="text" value="<?=$_SESSION["login"]?>">
+                            <input type="text" name="login" value="<?=$_SESSION["login"]?>">
                         </label>
                         <label for="">
                             Почта:
-                            <input type="text" value="<?=$_SESSION["email"]?>">
+                            <input type="text" name="email" value="<?=$_SESSION["email"]?>">
                         </label>
                         <label for="">
-                            Пароль:
-                            <input type="password" value="<?=$_SESSION["password"]?>">
+                             Введите старый пароль:
+                            <input type="password" name="password">
+                        </label>
+                        <label for="">
+                            Новый пароль:
+                            <input type="password" name="passwordUpdate">
                         </label>
                         <button class="btn_add_message" type="submit">Обновить</button>
                     </form>
@@ -226,7 +236,7 @@ require_once "create_and_read_db.php";
 
     </div>
 
-    <script src="./js/modal.js"></script>
+    <script src="./js/modal-profile.js"></script>
     <script src="./js/index.js"></script>
 </body>
 

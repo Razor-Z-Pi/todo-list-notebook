@@ -1,22 +1,15 @@
 // Получить модальный
 var modal = document.getElementById("myModal");
-var modalUpdate = document.getElementById("myModalUpdate");
 
 // Получить кнопку, которая открывает модальный
 var btn = document.getElementById("modalBtn");
-var btnUpdate = document.getElementById("modalBtnUpdate");
 
 // Получить элемент <span>, который закрывает модальный
-var span = document.getElementsByClassName("close")[0];
-var spanUpdate = document.getElementsByClassName("close")[1];
+var span = document.getElementsByClassName("close")[1];
 
 // Когда пользователь нажимает на кнопку, откройте модальный
 btn.onclick = function() {
   modal.style.display = "block";
-}
-
-btnUpdate.onclick = function() {
-  modalUpdate.style.display = "block";
 }
 
 // Когда пользователь нажимает на <span> (x), закройте модальное окно
@@ -24,13 +17,9 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 
-spanUpdate.onclick = function() {
-  modalUpdate.style.display = "none";
-}
-
 // Когда пользователь щелкает в любом месте за пределами модального, закройте его
 window.onclick = function(event) {
-  if (event.target == modal || event.target == modalUpdate) {
+  if (event.target == modal) {
     modal.style.display = "none";
     modalUpdate.style.display = "none";
   }
