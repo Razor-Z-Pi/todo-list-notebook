@@ -1,6 +1,9 @@
 <?php
 header("Content-type:text/html; charset=UTF-8");
 require_once "create_and_read_db.php";
+if (!isset($_SESSION["id"])) {
+    header("Location: index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -55,7 +58,7 @@ require_once "create_and_read_db.php";
                     </span>
                     <h3>История</h3>
                 </a>
-                <a href="index.php">
+                <a href="clear.php">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -158,7 +161,6 @@ require_once "create_and_read_db.php";
                 <select id="data" name="dataFinall">
                     <?php
                     $index_db = connect();
-                    $array = array();
 
                     $query = mysqli_query($index_db, "SELECT id FROM todolist");
                     $index = mysqli_fetch_all($query);
@@ -183,12 +185,14 @@ require_once "create_and_read_db.php";
                         <?php foreach ($message as $key => $value):?>
                             <form action="delete.php" method="post">
                             <div class="message-container">
+                            <?php if ($value[4] == $_SESSION["id"]) :?>
                                 <tr>
                                     <td><?=$key?></td>
                                     <td><?=$value[1]?></td>
                                     <td><?=$value[3]?></td>
                                     <td><?=nl2br(htmlspecialchars($value[2]))?></td>
                                 </tr>
+                            <?php endif;?>
                             </div>
                         <?php endforeach;?>
                         </tbody>

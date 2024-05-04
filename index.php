@@ -1,5 +1,6 @@
 <?php
 session_start();
+unset($_SESSION["id"]);
 ?>
 <!DOCTYPE html>
 <html lang="ru">

@@ -1,6 +1,9 @@
 <?php
 header("Content-type:text/html; charset=UTF-8");
 require_once "create_and_read_db.php";
+if (!isset($_SESSION["id"])) {
+    header("Location: index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -55,7 +58,7 @@ require_once "create_and_read_db.php";
                     </span>
                     <h3>История</h3>
                 </a>
-                <a href="index.php">
+                <a href="clear.php">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -85,6 +88,7 @@ require_once "create_and_read_db.php";
                         <?php $message = readhistory(); arsort($message);?>
                         <?php foreach ($message as $key => $value):?>
                             <div class="message-container">
+                            <?php if ($value[4] == $_SESSION["id"]) :?>
                                 <tr>
                                     <td><?=$key?></td>
                                     <td><?=$value[1]?></td>
@@ -103,6 +107,7 @@ require_once "create_and_read_db.php";
                                         ?>
                                         <div style="<?=$color?>"><b style="color: black"><?=$value[6]?></b></div>
                                     </td>
+                                <?php endif;?>
                                 </tr>
                             </div>
                         <?php endforeach;?>

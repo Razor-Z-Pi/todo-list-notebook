@@ -1,5 +1,9 @@
 <?php
 header("Content-type:text/html; charset=UTF-8");
+session_start();
+if (!isset($_SESSION["id"])) {
+    header("Location: index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -54,7 +58,7 @@ header("Content-type:text/html; charset=UTF-8");
                     </span>
                     <h3>История</h3>
                 </a>
-                <a href="index.php">
+                <a href="clear.php">
                     <span class="material-icons-sharp">
                         logout
                     </span>

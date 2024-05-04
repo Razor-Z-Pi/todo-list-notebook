@@ -1,6 +1,10 @@
 <?php
 header("Content-type:text/html; charset=UTF-8");
 require_once "create_and_read_db.php";
+
+if (!isset($_SESSION["id"])) {
+    header("Location: index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -55,7 +59,7 @@ require_once "create_and_read_db.php";
                     </span>
                     <h3>История</h3>
                 </a>
-                <a href="index.php">
+                <a href="clear.php">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -87,7 +91,7 @@ require_once "create_and_read_db.php";
                                     $query = mysqli_query($index_db, "SELECT * FROM auth");
                                     $index = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                     foreach ($index as $item) {
-                                        if ($id = $item["id"]) {
+                                        if ($id == $item["id"]) {
                                             print($item["cout_message"]);
                                             $_SESSION["cout"] = $item["cout_message"];
                                         }
@@ -187,12 +191,14 @@ require_once "create_and_read_db.php";
                     <?php $message = read(); arsort($message);?>
                     <?php foreach ($message as $key => $value):?>
                         <div class="message-container">
+                        <?php if ($value[4] == $_SESSION["id"]) :?>
                             <tr>
                                 <td>Номер записи: <?=$key?></td>
                                 <td>Тема: <?=$value[1]?></td>
                                 <td><?=$value[3]?></td>
                                 <td><?=nl2br(htmlspecialchars($value[2]))?></td>
                             </tr>
+                        <?php endif;?>
                         </div>
                     <?php endforeach;?>
                     </tbody>
