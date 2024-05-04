@@ -18,6 +18,7 @@ if (!empty($_POST["login"]) && !empty($_POST["password"])) {
       $_SESSION["login"] = $value["login"];
       $_SESSION["email"] = $user;
       $_SESSION["password"] = $value["password"];
+      break;
     }
   } 
     if ($user === $login) {

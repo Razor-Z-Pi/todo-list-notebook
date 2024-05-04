@@ -105,8 +105,8 @@ if (!isset($_SESSION["id"])) {
                 <!-- Модальное содержание -->
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h2 style="text-align: center;">Заполни поля!!!</h2>
                     <span class="close">&times;</span>
+                    <h2 style="text-align: center;">Заполни поля!!!</h2>
                     </div>
                     <div class="modal-body" style="text-align: center; font-weight: 700; font-size: 20px;">
                         <form class="form_add_message" action="update.php" method="post">
@@ -114,10 +114,13 @@ if (!isset($_SESSION["id"])) {
                             <select id="data" name="dataUpdate">
                                 <?php
                                 $index_db = connect();
-                                $query = mysqli_query($index_db, "SELECT id FROM todolist");
+                                $query = mysqli_query($index_db, "SELECT id, id_auth FROM todolist");
                                 $index = mysqli_fetch_all($query);
                                 foreach ($index as $i => $key):?>
-                                    <option selected value="<?=$key[0]?>"><?=$i?></option>
+                                    <?php if ($key[1] == $_SESSION["id"]) :?>
+                                        <?php $cout_index =+ 1?>
+                                        <option selected value="<?=$key[0]?>"><?=$cout_index?></option>
+                                    <?php endif;?>
                                 <?php endforeach;?>
                             </select>
                             <br>
@@ -138,20 +141,15 @@ if (!isset($_SESSION["id"])) {
                 <select id="data" name="dataS">
                     <?php
                     $index_db = connect();
-                    $array = array();
 
-                    $query = mysqli_query($index_db, "SELECT id FROM todolist");
+                    $query = mysqli_query($index_db, "SELECT id, id_auth FROM todolist");
                     $index = mysqli_fetch_all($query);
 
-                    foreach ($index as $j => $item) {
-                        $array[] = $item[0];
-                    }
-
-                    $_SESSION["array"] = $array;
-                  
-
                     foreach ($index as $i => $key):?>
-                        <option selected value="<?=$key[0]?>"><?=$i?></option>
+                        <?php if ($key[1] == $_SESSION["id"]) :?>
+                            <?php $cout_index =+ 1?>
+                            <option selected value="<?=$key[0]?>"><?=$cout_index?></option>
+                        <?php endif?>
                     <?php endforeach;?>
                 </select>
                 <button class="btn_add_message" type="submit">Удалить</button>
@@ -162,11 +160,14 @@ if (!isset($_SESSION["id"])) {
                     <?php
                     $index_db = connect();
 
-                    $query = mysqli_query($index_db, "SELECT id FROM todolist");
+                    $query = mysqli_query($index_db, "SELECT id, id_auth FROM todolist");
                     $index = mysqli_fetch_all($query);
             
                     foreach ($index as $i => $key):?>
-                        <option selected value="<?=$key[0]?>"><?=$i?></option>
+                        <?php if ($key[1] == $_SESSION["id"]) :?>
+                            <?php $cout_index =+ 1?>
+                            <option selected value="<?=$key[0]?>"><?=$cout_index?></option>
+                        <?php endif;?>
                     <?php endforeach;?>
                 </select>
                 <button class="btn_add_message" type="submit">Завершить</button>
@@ -186,8 +187,9 @@ if (!isset($_SESSION["id"])) {
                             <form action="delete.php" method="post">
                             <div class="message-container">
                             <?php if ($value[4] == $_SESSION["id"]) :?>
+                                <?php $cout_index =+ 1?>
                                 <tr>
-                                    <td><?=$key?></td>
+                                    <td><?=$cout_index?></td>
                                     <td><?=$value[1]?></td>
                                     <td><?=$value[3]?></td>
                                     <td><?=nl2br(htmlspecialchars($value[2]))?></td>
