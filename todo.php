@@ -20,7 +20,7 @@ if (!isset($_SESSION["id"])) {
 <body>
 
     <div class="container">
-        <!-- Sidebar Section -->
+        <!-- Секция Sidebar -->
         <aside>
             <div class="toggle">
                 <div class="logo">
@@ -66,9 +66,8 @@ if (!isset($_SESSION["id"])) {
                 </a>
             </div>
         </aside>
-        <!-- End of Sidebar Section -->
 
-        <!-- Main Content -->
+        <!-- Главный контент -->
         <main>
             <h1>Списки</h1>
             <div class="new-users">
@@ -77,12 +76,9 @@ if (!isset($_SESSION["id"])) {
                     <button type="button" id="modalBtnUpdate" class="btn_add_message container-width">Редактировать</button>
                 </div>
             </div>
-            <!-- End of New Users Section -->
 
-            <!-- Модальный -->
+            <!-- Модальное окно для создания -->
             <div id="myModal" class="modal">
-
-                <!-- Модальное содержание -->
                 <div class="modal-content">
                     <div class="modal-header">
                     <span class="close">&times;</span>
@@ -90,19 +86,17 @@ if (!isset($_SESSION["id"])) {
                     </div>
                     <div class="modal-body" style="text-align: center; font-weight: 700; font-size: 20px;">
                         <form class="form_add_message" action="create_and_read_db.php" method="post">
-                            <input name="title" class="inp_item" type="text" placeholder="Заголовок" required>
-                            <textarea name="message" class="inp_item" name="" id="" cols="30" rows="10" placeholder="Основная задача" required></textarea>
-                            <button class="btn_add_message" type="submit">Записать</button>
+                            <input class="text-field__input text-field__input_modal" name="title" class="inp_item" type="text" placeholder="Заголовок" required>
+                            <textarea class="text-field__input text-field__input_textarea" name="message" class="inp_item" cols="30" rows="10" placeholder="Основная задача" required></textarea>
+                            <button class="btn_add_message btm_modal_push" type="submit">Записать</button>
                         </form>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Модальный Редактирования-->
+            <!-- Редактирования записи-->
             <div id="myModalUpdate" class="modal">
-
-                <!-- Модальное содержание -->
                 <div class="modal-content">
                     <div class="modal-header">
                     <span class="close">&times;</span>
@@ -124,16 +118,16 @@ if (!isset($_SESSION["id"])) {
                                 <?php endforeach;?>
                             </select>
                             <br>
-                            <input name="titleUpd" class="inp_item" type="text" placeholder="Заголовок" required>
-                            <textarea name="messageUpd" class="inp_item" name="" id="" cols="30" rows="10" placeholder="Основная задача" required></textarea>
-                            <button class="btn_add_message" type="submit">Обновить</button>
+                            <input class="text-field__input text-field__input_modal" name="titleUpd" class="inp_item" type="text" placeholder="Заголовок" required>
+                            <textarea class="text-field__input text-field__input_textarea" name="messageUpd" class="inp_item" cols="30" rows="10" placeholder="Основная задача" required></textarea>
+                            <button class="btn_add_message btm_modal_push" type="submit">Обновить</button>
                         </form>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Recent Orders Table -->
+            <!-- Таблица -->
             <div class="recent-orders">
                 <h2>Записи</h2>
                 <form method="post" action="delete.php">
@@ -200,12 +194,8 @@ if (!isset($_SESSION["id"])) {
                         </tbody>
                     </table>
             </div>
-            <!-- End of Recent Orders -->
-
         </main>
-        <!-- End of Main Content -->
 
-        <!-- Right Section -->
         <div class="right-section">
             <div class="nav">
                 <button id="menu-btn">
@@ -222,7 +212,6 @@ if (!isset($_SESSION["id"])) {
                     </span>
                 </div>
             </div>
-            <!-- End of Nav -->
         </div>
 
 

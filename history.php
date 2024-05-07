@@ -20,7 +20,7 @@ if (!isset($_SESSION["id"])) {
 <body>
 
     <div class="container">
-        <!-- Sidebar Section -->
+        <!-- Секция Sidebar -->
         <aside>
             <div class="toggle">
                 <div class="logo">
@@ -66,12 +66,11 @@ if (!isset($_SESSION["id"])) {
                 </a>
             </div>
         </aside>
-        <!-- End of Sidebar Section -->
 
-        <!-- Main Content -->
+        <!-- Главный контент -->
         <main>
             <h1>История</h1>
-            <!-- Recent Orders Table -->
+            <!-- Таблица -->
             <div class="recent-orders container-history">
                 <h2>Записи</h2>
                     <table>
@@ -114,12 +113,8 @@ if (!isset($_SESSION["id"])) {
                         </tbody>
                     </table>
             </div>
-            <!-- End of Recent Orders -->
-
         </main>
-        <!-- End of Main Content -->
 
-        <!-- Right Section -->
         <div class="right-section">
             <div class="nav">
                 <button id="menu-btn">
@@ -136,7 +131,6 @@ if (!isset($_SESSION["id"])) {
                     </span>
                 </div>
             </div>
-            <!-- End of Nav -->
         </div>
 
 

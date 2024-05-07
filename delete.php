@@ -18,6 +18,8 @@ if (!empty($_POST)) {
   delete($data, $item, $id, $cout, false);
 }
 
+header("Location: todo.php");
+
 function delete($data, $index, $id, $cout, $state) {
   $query = "DELETE FROM todolist WHERE id = '$index'";
   if ($state != true) {

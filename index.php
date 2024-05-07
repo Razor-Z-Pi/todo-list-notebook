@@ -35,10 +35,8 @@ unset($_SESSION["id"]);
                     <input name="password" class="form-control" type="password" placeholder="Пароль" required>
                 </p>
                 <button class="btn btn-primary w-100 py-2" type="submit">Войти</button>
-            </form>
-            <form method="post" action="./register.php">
-              <br>
-              <button class="btn btn-primary w-100 py-2" type="submit">Регистрация</button>
+                <br>
+                <a class="btn btn-primary w-100 py-2" href="register.php">Регистрация</a>
             </form>
         </div>
     </section>

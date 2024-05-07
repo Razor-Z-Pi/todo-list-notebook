@@ -1,14 +1,14 @@
 // Получить модальный
-var modal = document.getElementById("myModal");
-var modalUpdate = document.getElementById("myModalUpdate");
+let modal = document.getElementById("myModal");
+let modalUpdate = document.getElementById("myModalUpdate");
 
 // Получить кнопку, которая открывает модальный
-var btn = document.getElementById("modalBtn");
-var btnUpdate = document.getElementById("modalBtnUpdate");
+let btn = document.getElementById("modalBtn");
+let btnUpdate = document.getElementById("modalBtnUpdate");
 
 // Получить элемент <span>, который закрывает модальный
-var span = document.getElementsByClassName("close")[0];
-var spanUpdate = document.getElementsByClassName("close")[1];
+let span = document.getElementsByClassName("close")[1];
+let spanUpdate = document.getElementsByClassName("close")[2];
 
 // Когда пользователь нажимает на кнопку, откройте модальный
 btn.onclick = function() {
@@ -37,13 +37,13 @@ window.onclick = function(event) {
 }
 
 
-var coll = document.getElementsByClassName("collapsible");
-var i;
+let coll = document.getElementsByClassName("collapsible");
+let i;
 
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
-    var content = this.nextElementSibling;
+    let content = this.nextElementSibling;
     if (content.style.display === "block") {
       content.style.display = "none";
     } else {

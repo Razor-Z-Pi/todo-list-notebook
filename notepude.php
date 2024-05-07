@@ -20,7 +20,7 @@ if (!isset($_SESSION["id"])) {
 <body>
 
     <div class="container">
-        <!-- Sidebar Section -->
+        <!-- Секция Sidebar -->
         <aside>
             <div class="toggle">
                 <div class="logo">
@@ -66,22 +66,20 @@ if (!isset($_SESSION["id"])) {
                 </a>
             </div>
         </aside>
-        <!-- End of Sidebar Section -->
 
-        <!-- Main Content -->
+        <!-- Главный контент -->
         <main>
             <h1>Блокнот</h1>
-            <!-- Recent Orders Table -->
-            <div class="recent-orders container-history">
-                <textarea style="width: 100%; height: 50%" name="notepud" id="notepud" id="" cols="30" rows="10"></textarea>
-
-                <ul id="listNotepud"></ul>
-            </div>
-            <!-- End of Recent Orders -->
+                <div class="recent-orders container-history">
+                    <p>
+                        Запишите текст в специально отведенное поле, после щелчка мыши за поле запись временно сохраниться с соотвествующей датой,<br> 
+                        по щелчку на дату вы увидете сохраненную запись!!!
+                    </p>
+                    <textarea class="text-field__input" style="width: 100%; height: 50%" name="notepud" id="notepud" cols="30" rows="20"></textarea>
+                    <ul id="listNotepud"></ul>
+                </div>
         </main>
-        <!-- End of Main Content -->
 
-        <!-- Right Section -->
         <div class="right-section">
             <div class="nav">
                 <button id="menu-btn">
@@ -98,7 +96,6 @@ if (!isset($_SESSION["id"])) {
                     </span>
                 </div>
             </div>
-            <!-- End of Nav -->
         </div>
 
 

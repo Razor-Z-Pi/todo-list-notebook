@@ -11,13 +11,13 @@ textarea.addEventListener("blur", function() {
         state = {edit: false, key: undefined};
         this.value = '';
     } else {
-        let date = new Date;
+        let date = new Date; // Встроенный класс для даты 
         let now = addZero(date.getHours()) + ":" + 
         addZero(date.getMinutes()) + ":" + 
         addZero(date.getSeconds()) + " " + 
         addZero(date.getDate()) + "." + 
         addZero(date.getMonth() + 1) + "." + 
-        date.getFullYear();
+        date.getFullYear(); // Создание соответсвующей записи данных
         
         object.push({text: this.value, time: now});
 

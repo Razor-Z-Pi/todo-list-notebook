@@ -21,7 +21,7 @@ if (!isset($_SESSION["id"])) {
 <body>
 
     <div class="container">
-        <!-- Sidebar Section -->
+        <!-- Секция Sidebar -->
         <aside>
             <div class="toggle">
                 <div class="logo">
@@ -67,12 +67,10 @@ if (!isset($_SESSION["id"])) {
                 </a>
             </div>
         </aside>
-        <!-- End of Sidebar Section -->
 
-        <!-- Main Content -->
+        <!-- Главный контент -->
         <main>
             <h1>Профиль</h1>
-            <!-- Analyses -->
             <div class="analyse">
                 <div class="sales">
                     <div class="status">
@@ -103,9 +101,7 @@ if (!isset($_SESSION["id"])) {
                     </div>
                 </div>
             </div>
-            <!-- End of Analyses -->
 
-            <!-- New Users Section -->
             <div class="new-users">
                 <h2>Информация</h2>
                 <?php
@@ -118,19 +114,19 @@ if (!isset($_SESSION["id"])) {
                     <div class="user">
                         <label for="">
                             Логин:
-                            <input type="text" value="<?=$_SESSION["login"]?>">
+                            <input class="text-field__input" type="text" value="<?=$_SESSION["login"]?>">
                         </label>
                     </div>
                     <div class="user">
                         <label for="">
                             Почта:
-                            <input type="text" value="<?=$_SESSION["email"]?>">
+                            <input class="text-field__input" type="text" value="<?=$_SESSION["email"]?>">
                         </label>
                     </div>
                     <div class="user">
                         <label for="">
                             Пароль:
-                            <input type="password" value="<?=$_SESSION["password"]?>">
+                            <input class="text-field__input" type="password" value="<?=$_SESSION["password"]?>">
                         </label>
                     </div>
                     <div class="user">
@@ -138,13 +134,10 @@ if (!isset($_SESSION["id"])) {
                     </div>
                 </div>
             </div>
-            <!-- End of New Users Section -->
 
-
-            <!-- Модальный Редактирования-->
+            <!-- Редактирования-->
             <div id="myModal" class="modal">
 
-            <!-- Модальное содержание -->
             <div class="modal-content">
                 <div class="modal-header">
                 <span class="close">&times;</span>
@@ -154,28 +147,28 @@ if (!isset($_SESSION["id"])) {
                     <form class="form_add_message" action="profileUpdate.php" method="post">
                         <label for="">
                             Логин:
-                            <input type="text" name="login" value="<?=$_SESSION["login"]?>">
+                            <input class="text-field__input" type="text" name="login" value="<?=$_SESSION["login"]?>">
                         </label>
                         <label for="">
                             Почта:
-                            <input type="text" name="email" value="<?=$_SESSION["email"]?>">
+                            <input class="text-field__input" type="text" name="email" value="<?=$_SESSION["email"]?>">
                         </label>
                         <label for="">
                              Введите старый пароль:
-                            <input type="password" name="password">
+                            <input class="text-field__input" type="password" name="password">
                         </label>
                         <label for="">
                             Новый пароль:
-                            <input type="password" name="passwordUpdate">
+                            <input class="text-field__input" type="password" name="passwordUpdate">
                         </label>
-                        <button class="btn_add_message" type="submit">Обновить</button>
+                        <button class="btn_add_message btm_modal_push" type="submit">Обновить</button>
                     </form>
                 </div>
             </div>
 
             </div>
 
-            <!-- Recent Orders Table -->
+            <!--Таблица-->
             <div class="recent-orders">
                 <h2>Записи</h2>
                 <table>
@@ -204,12 +197,8 @@ if (!isset($_SESSION["id"])) {
                     </tbody>
                 </table>
             </div>
-            <!-- End of Recent Orders -->
-
         </main>
-        <!-- End of Main Content -->
 
-        <!-- Right Section -->
         <div class="right-section">
             <div class="nav">
                 <button id="menu-btn">
@@ -226,7 +215,6 @@ if (!isset($_SESSION["id"])) {
                     </span>
                 </div>
             </div>
-            <!-- End of Nav -->
 
             <div class="user-profile">
                 <div class="logo">

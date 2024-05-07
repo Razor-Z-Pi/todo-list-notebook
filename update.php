@@ -13,3 +13,5 @@ if (!empty($_POST)) {
     mysqli_query($data, $query) or die("Произошла ошибка раедактирования записи истории!!!");
     header("Location: todo.php");
 }
+
+header("Location: todo.php");

@@ -136,30 +136,74 @@ img {
     background-color: orange;
 }
 
-/* Модальный (фон) */
+.btm_modal_push {
+    margin: 10px;
+}
+
+.text-field__input {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.text-field__input_modal {
+    width: 50%;
+    margin-top: 30px;
+}
+
+.text-field__input_textarea {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    width: 50%;
+    height: 50%;
+}
+
+.text-field__input::placeholder {
+    color: #212529;
+    opacity: 0.4;
+}
+
+.text-field__input:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #bdbdbd;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+}
+
+.text-field__input:disabled,
+.text-field__input[readonly] {
+    background-color: #f5f5f5;
+    opacity: 1;
+}
+
+/* Модальное окно */
 .modal {
     display: none;
-    /* Скрыто по умолчанию */
     position: fixed;
-    /* Оставаться на месте */
     z-index: 1;
-    /* Сидеть на вершине */
     padding-top: 100px;
-    /* Расположение коробки */
     left: 0;
     top: 0;
     width: 100%;
-    /* Полная ширина */
     height: 100%;
-    /* Полная высота */
     overflow: auto;
-    /* Включите прокрутку, если это необходимо */
     background-color: rgb(0, 0, 0);
-    /* Цвет запасной вариант  */
     background-color: rgba(0, 0, 0, 0.4);
-    /*Черный с непрозрачностью */
-  }
-  
+  }  
+
   /* Модальное содержание */
   .modal-content {
     position: relative;
@@ -175,7 +219,7 @@ img {
     animation-duration: 0.4s
   }
   
-  /* Добавить анимацию */
+  /*Анимация мод. окна */
   @-webkit-keyframes animatetop {
     from {
       top: -300px;
@@ -256,6 +300,8 @@ img {
 .warning{
     color: var(--color-warning);
 }
+
+/*Содержания кабинета*/
 
 .container{
     display: grid;
@@ -686,6 +732,8 @@ main .recent-orders a{
 .container-history {
     width: 1000px;
 }
+
+/*Небольшой адаптив*/
 
 @media screen and (max-width: 1200px) {
     .container-width {
